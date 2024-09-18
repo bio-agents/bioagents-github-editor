@@ -1,0 +1,6 @@
+<div ng-controller="AgentGridController">
+	<div ng-if="!AgentList.loading && AgentList.count && AgentList.count != 0">
+		<div ui-grid="gridOptions" ui-grid-auto-resize ui-grid-save-state ui-grid-resize-columns ui-grid-move-columns class="agentGrid" ng-style="tableHeight()"></div>
+		<div agent-paginator></div>
+	</div>
+</div>

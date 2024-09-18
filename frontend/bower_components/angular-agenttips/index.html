@@ -1,0 +1,152 @@
+<!doctype html>
+<html ng-app="720kb">
+<head>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="http://720kb.github.io/csshelper/assets/ext/src/helper.css">
+  <link rel="stylesheet" type="text/css" href="src/css/angular-agenttips.css">
+  <link rel="stylesheet" type="text/css" href="cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"/>
+  <title>Angularjs Agenttips</title>
+</head>
+<body class="center-content" ng-controller="Ctrl">
+  <div class="separator100"></div>
+  <div class="col6 offset-left2">
+    <div ng-repeat="item in items">
+    <a agenttips agenttip-html="{{generateHTMLextra(item)}}"> item</a>
+    </div>
+   <div>
+      With just an icon (Hover the icon) <i class="fa fa-trash-o clickable-icon" agenttips agenttip-title="title" agenttip-size="small"></i>
+
+    <div class="separator30"></div>
+    <a class="btn btn-medium bg-info color-white font-bold"
+     agenttip-delay="400"
+     agenttip-scroll="true"
+     agenttip-content="Yeo man!"
+     agenttip-view="views/index.html"
+     agenttip-view-ctrl="Ctrl"
+     agenttip-size="small"
+     agenttip-side="left"
+     agenttips
+	   agenttip-hide-trigger="click"
+	   agenttip-hide-target="agenttip"
+     agenttip-title="hey!">
+      Small left
+    </a>
+  </div>
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-hide-trigger="click" agenttip-size="medium" agenttip-side="left" title="Title attr" >
+      Medium left
+    </a>
+  </div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="large" agenttip-side="left" >
+      Large left
+    </a>
+  </div>
+
+  <div class="separator100"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="small" agenttip-side="right" >
+      Small right
+    </a>
+  </div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="medium" agenttip-side="right" >
+      Medium right
+    </a>
+  </div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="large" agenttip-side="right" >
+      Large right
+    </a>
+  </div>
+  <div class="separator100"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="small" agenttip-side="top" >
+      Small top
+    </a>
+  </div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="medium" agenttip-side="top" >
+      Medium top
+    </a>
+  </div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="large" agenttip-side="top" >
+      Large top
+    </a>
+  </div>
+  <div class="separator100"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="small" agenttip-side="bottom" >
+      Small bottom
+    </a>
+  </div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="medium" agenttip-side="bottom" >
+      Medium bottom
+    </a>
+  </div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-size="large" agenttip-side="bottom" >
+      Large bottom
+    </a>
+  </div>
+  <div class="separator100"></div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man!" agenttip-show-trigger="mouseover click" agenttip-hide-trigger="click" agenttip-close-button='<button type="button">Close Me!</button>' agenttip-side="top">
+      Close button: hover to open, click to close
+    </a>
+  </div>
+
+  <div class="separator30"></div>
+  <div>
+    <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-content="Yeo man! I have some more to say to show the positioning of the close button" agenttip-show-trigger="click" agenttip-hide-trigger="click" agenttip-close-button='<button type="button">Close Me!</button>' agenttip-side="bottom">
+      Close button: click to open and close
+    </a>
+  </div>
+  <div class="separator30"></div>
+  <div>
+   <a class="btn btn-medium bg-info color-white font-bold"
+    agenttips
+    agenttip-delay="400"
+    agenttip-scroll="true"
+    agenttip-content="Yeo man!"
+    agenttip-size="large"
+    agenttip-hide-trigger="click"
+    agenttip-hide-target="agenttip"
+    agenttip-title="Click agenttip to hide agenttip">
+     Hide Target = agenttip
+   </a>
+ </div>
+  <div class="separator100"></div>
+  <div style="height:300px; overflow-y:scroll">
+    <div style="height:600px;">
+      <a class="btn btn-medium bg-info color-white font-bold" agenttips agenttip-scroll="true" agenttip-content="Yeo man!" agenttip-hide-trigger="click" agenttip-size="medium" agenttip-side="left" title="Title attr">
+        Scrollable
+       </a>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-route.min.js"></script>
+<script type="text/javascript" src="src/js/angular-agenttips.js"></script>
+<script type="text/javascript" src="assets/js/index.js"></script>
+</body>
+</html>

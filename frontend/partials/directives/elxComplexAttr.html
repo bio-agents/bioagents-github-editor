@@ -1,0 +1,223 @@
+<div ng-form name="inner_form">
+<div ng-repeat="agentAttribute in agentAttributeModel" ng-if="!agentAttribute.hidden">
+	<div class="form-group" ng-if="(agentInstance[agentAttribute.attrName] != undefined && agentInstance[agentAttribute.attrName].length > 0) || (agentAttribute.multipleVal != 'true' && agentAttribute.type != 'complex') || (agentAttribute.type == 'complex' && agentInstance[agentAttribute.attrName] != undefined)">
+		<label>
+			<span popover-placement="top" popover="{{ agentAttribute.description }}" popover-popup-delay="0" popover-trigger="mouseenter">{{ agentAttribute.text }}</span> 
+			<span style="color:#ff0000;" ng-show="{{ agentAttribute.required }}"><b>*</b></span>
+		</label>
+		<div ng-switch on="agentAttribute.type">
+			<!-- Text input -->
+			<div ng-switch-when="text">
+				<div ng-switch on="agentAttribute.multipleVal">
+					<!-- Multiple values -->
+					<div ng-switch-when="true">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+									<div class="row">
+										<!-- Element -->
+										<div elx-input-text agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName][$index]" form="inner_form[agentInstance[agentAttribute.attrName]]" class="pull-left col-md-10 col-sm-10 col-xs-10"></div>
+										<!-- Remove button -->
+										<div elx-remove-agent-attribute-button agent-attribute-model="agentAttribute" on-click="removeAttribute(agentInstance[agentAttribute.attrName], agentAttribute.attrName, $index, $event)" class="pull-right col-md-2 col-sm-2 col-xs-2" style="margin-top:6px;"></div>
+										</div>
+									</div>
+								<!-- Add button -->
+								<div elx-add-agent-attribute-button last="true" agent-attribute-model="agentAttribute" agent-instance="agentInstance" on-click="addAttribute( agentAttribute )"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Single value -->
+					<div ng-switch-default>
+						<!-- Element -->
+						<div elx-input-text agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName]" form="inner_form"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Enum input -->
+			<div ng-switch-when="enum">
+				<div ng-switch on="agentAttribute.multipleVal">
+					<!-- Multiple values -->
+					<div ng-switch-when="true">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+									<div class="row">
+										<!-- Element -->
+										<div elx-input-select agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName][$index]" form="inner_form[agentInstance[agentAttribute.attrName]]" class="pull-left col-md-11 col-sm-11 col-xs-11"></div>
+										<!-- Remove button -->
+										<div elx-remove-agent-attribute-button agent-attribute-model="agentAttribute" on-click="removeAttribute(agentInstance[agentAttribute.attrName], agentAttribute.attrName, $index, $event)" class="pull-right col-md-1 col-sm-1 col-xs-1" style="margin-top:6px;"></div>
+									</div>
+								</div>
+								<!-- Add button -->
+								<div elx-add-agent-attribute-button last="true" agent-attribute-model="agentAttribute" agent-instance="agentInstance" on-click="addAttribute( agentAttribute )"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Single value -->
+					<div ng-switch-default>
+						<!-- Element -->
+						<div elx-input-select agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName]" form="inner_form"></div>
+					</div>
+				</div>
+			</div>
+			<!-- URL input -->
+			<div ng-switch-when="url">
+				<div ng-switch on="agentAttribute.multipleVal">
+					<!-- Multiple values -->
+					<div ng-switch-when="true">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+									<div class="row">
+										<!-- Element -->
+										<div elx-input-url agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName][$index]" form="inner_form" class="pull-left col-md-12 col-sm-12 col-xs-12"></div>
+										<!-- Remove button -->
+										<div elx-remove-agent-attribute-button agent-attribute-model="agentAttribute" on-click="removeAttribute(agentInstance[agentAttribute.attrName], agentAttribute.attrName, $index, $event)"></div>
+									</div>
+								</div>
+								<!-- Add button -->
+								<div elx-add-agent-attribute-button last="true" agent-attribute-model="agentAttribute" agent-instance="agentInstance" on-click="addAttribute( agentAttribute )"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Single value -->
+					<div ng-switch-default>
+						<!-- Element -->
+						<div elx-input-url agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName]" form="inner_form"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Email input -->
+			<div ng-switch-when="email">
+				<div ng-switch on="agentAttribute.multipleVal">
+					<!-- Multiple values -->
+					<div ng-switch-when="true">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+									<div class="row">
+										<!-- Element -->
+										<div elx-input-email agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName][$index]" form="inner_form" class="pull-left col-md-12 col-sm-12 col-xs-12"></div>
+										<!-- Remove button -->
+										<div elx-remove-agent-attribute-button agent-attribute-model="agentAttribute" on-click="removeAttribute(agentInstance[agentAttribute.attrName], agentAttribute.attrName, $index, $event)"></div>
+									</div>
+								</div>
+								<!-- Add button -->
+								<div elx-add-agent-attribute-button last="true" agent-attribute-model="agentAttribute" agent-instance="agentInstance" on-click="addAttribute( agentAttribute )"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Single value -->
+					<div ng-switch-default>
+						<!-- Element -->
+						<div elx-input-email agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName]" form="inner_form"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Phone input -->
+			<div ng-switch-when="number">
+				<div ng-switch on="agentAttribute.multipleVal">
+					<!-- Multiple values -->
+					<div ng-switch-when="true">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+									<div class="row">
+										<!-- Element -->
+										<div elx-input-phone agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName][$index]" form="inner_form" class="pull-left col-md-12 col-sm-12 col-xs-12"></div>
+										<!-- Remove button -->
+										<div elx-remove-agent-attribute-button agent-attribute-model="agentAttribute" on-click="removeAttribute(agentInstance[agentAttribute.attrName], agentAttribute.attrName, $index, $event)"></div>
+									</div>
+								</div>
+								<!-- Add button -->
+								<div elx-add-agent-attribute-button last="true" agent-attribute-model="agentAttribute" agent-instance="agentInstance" on-click="addAttribute( agentAttribute )"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Single value -->
+					<div ng-switch-default>
+						<!-- Element -->
+						<div elx-input-phone agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName]" form="inner_form"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Ontology input -->
+			<div ng-switch-when="ontology">
+				<div ng-switch on="agentAttribute.multipleVal">
+					<!-- Multiple values -->
+					<div ng-switch-when="true">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+									<div class="row">
+										<!-- Element -->
+										<div elx-input-ontology agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName][$index]" form="inner_form" class="pull-left col-md-10 col-sm-10 col-xs-10"></div>
+										<!-- Remove button -->
+										<div elx-remove-agent-attribute-button agent-attribute-model="agentAttribute" on-click="removeAttribute(agentInstance[agentAttribute.attrName], agentAttribute.attrName, $index, $event)" ng-if="$index == agentInstance[agentAttribute.attrName].length-1" class="pull-right col-md-2 col-sm-2 col-xs-2" style="margin-top:6px;"></div>
+									</div>
+								</div>
+								<!-- Add button -->
+								<div elx-add-agent-attribute-button last="true" agent-attribute-model="agentAttribute" agent-instance="agentInstance" on-click="addAttribute( agentAttribute )"></div>
+							</div>
+						</div>
+					</div>
+					<!-- Single value -->
+					<div ng-switch-default>
+						<!-- Element -->
+						<div elx-input-ontology agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName]" form="inner_form"></div>
+						<div style="clear:both"></div>
+					</div>
+				</div>
+			</div>
+			<!-- Complex input -->
+			<div ng-switch-when="complex">
+				<div ng-switch on="agentAttribute.multipleVal">
+					<!-- Multiple values -->
+					<div ng-switch-when="true">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<!-- Remove button -->
+											<div elx-remove-agent-attribute-button agent-attribute-model="agentAttribute" on-click="removeAttribute(agentInstance[agentAttribute.attrName], agentAttribute.attrName, $index, $event)"></div>
+											<!-- Element -->
+											<div elx-complex-attr-compiler agent-attribute-model="agentAttribute.fields" agent-instance="agentInstance[agentAttribute.attrName][$index]" form="inner_form"></div>
+											<hr ng-show="agentAttribute.multipleVal == true">
+										</div>
+									</div>
+								</div>
+								<!-- Add button -->
+								<div elx-add-agent-attribute-button last="true" agent-attribute-model="agentAttribute" agent-instance="agentInstance" on-click="addAttribute( agentAttribute )"></div>
+							</div>
+							<div style="clear:both"></div>
+						</div>
+					</div>
+					<!-- Single value -->
+					<div ng-switch-default>
+						<!-- Remove button -->
+						<div elx-remove-agent-attribute-button agent-attribute-model="agentAttribute" on-click="removeAttributeSingle(agentAttribute.attrName)" class="pull-right col-md-1 col-sm-1 col-xs-1" style="margin-top:6px;"></div>
+						<!-- Element -->
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<div elx-complex-attr-compiler agent-attribute-model="agentAttribute.fields" agent-instance="agentInstance[agentAttribute.attrName]" form="inner_form"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-if="(agentInstance[agentAttribute.attrName] == undefined || agentInstance[agentAttribute.attrName].length == 0) && (agentAttribute.multipleVal == 'true' || agentAttribute.type == 'complex')">
+		<div class="form-group">
+			<label>
+				<span popover-placement="top" popover="{{ agentAttribute.description }}" popover-popup-delay="0" popover-trigger="mouseenter">{{ agentAttribute.text }}</span> 
+				<span style="color:#ff0000;" ng-show="{{ agentAttribute.required }}"><b>*</b></span>
+			</label>
+			<div class="form-group">
+				<button class="btn btn-default btn-xs" type="button" ng-click="addAttribute( agentAttribute )">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

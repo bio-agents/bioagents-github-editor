@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Line Chart with Custom Agenttips</title>
+	<script src="../../dist/Chart.min.js"></script>
+	<script src="../utils.js"></script>
+	<style>
+		canvas{
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+		#chartjs-agenttip {
+			opacity: 1;
+			position: absolute;
+			background: rgba(0, 0, 0, .7);
+			color: white;
+			border-radius: 3px;
+			-webkit-transition: all .1s ease;
+			transition: all .1s ease;
+			pointer-events: none;
+			-webkit-transform: translate(-50%, 0);
+			transform: translate(-50%, 0);
+		}
+
+		.chartjs-agenttip-key {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			margin-right: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="canvas-holder1" style="width:75%;">
+		<canvas id="chart"></canvas>
+	</div>
+	<script>
+		Chart.defaults.global.pointHitDetectionRadius = 1;
+
+		var customAgenttips = function(agenttip) {
+			// Agenttip Element
+			var agenttipEl = document.getElementById('chartjs-agenttip');
+
+			if (!agenttipEl) {
+				agenttipEl = document.createElement('div');
+				agenttipEl.id = 'chartjs-agenttip';
+				agenttipEl.innerHTML = '<table></table>';
+				this._chart.canvas.parentNode.appendChild(agenttipEl);
+			}
+
+			// Hide if no agenttip
+			if (agenttip.opacity === 0) {
+				agenttipEl.style.opacity = 0;
+				return;
+			}
+
+			// Set caret Position
+			agenttipEl.classList.remove('above', 'below', 'no-transform');
+			if (agenttip.yAlign) {
+				agenttipEl.classList.add(agenttip.yAlign);
+			} else {
+				agenttipEl.classList.add('no-transform');
+			}
+
+			function getBody(bodyItem) {
+				return bodyItem.lines;
+			}
+
+			// Set Text
+			if (agenttip.body) {
+				var titleLines = agenttip.title || [];
+				var bodyLines = agenttip.body.map(getBody);
+
+				var innerHtml = '<thead>';
+
+				titleLines.forEach(function(title) {
+					innerHtml += '<tr><th>' + title + '</th></tr>';
+				});
+				innerHtml += '</thead><tbody>';
+
+				bodyLines.forEach(function(body, i) {
+					var colors = agenttip.labelColors[i];
+					var style = 'background:' + colors.backgroundColor;
+					style += '; border-color:' + colors.borderColor;
+					style += '; border-width: 2px';
+					var span = '<span class="chartjs-agenttip-key" style="' + style + '"></span>';
+					innerHtml += '<tr><td>' + span + body + '</td></tr>';
+				});
+				innerHtml += '</tbody>';
+
+				var tableRoot = agenttipEl.querySelector('table');
+				tableRoot.innerHTML = innerHtml;
+			}
+
+			var positionY = this._chart.canvas.offsetTop;
+			var positionX = this._chart.canvas.offsetLeft;
+
+			// Display, position, and set styles for font
+			agenttipEl.style.opacity = 1;
+			agenttipEl.style.left = positionX + agenttip.caretX + 'px';
+			agenttipEl.style.top = positionY + agenttip.caretY + 'px';
+			agenttipEl.style.fontFamily = agenttip._bodyFontFamily;
+			agenttipEl.style.fontSize = agenttip.bodyFontSize + 'px';
+			agenttipEl.style.fontStyle = agenttip._bodyFontStyle;
+			agenttipEl.style.padding = agenttip.yPadding + 'px ' + agenttip.xPadding + 'px';
+		};
+
+		var lineChartData = {
+			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+			datasets: [{
+				label: 'My First dataset',
+				borderColor: window.chartColors.red,
+				pointBackgroundColor: window.chartColors.red,
+				fill: false,
+				data: [
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor()
+				]
+			}, {
+				label: 'My Second dataset',
+				borderColor: window.chartColors.blue,
+				pointBackgroundColor: window.chartColors.blue,
+				fill: false,
+				data: [
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor(),
+					randomScalingFactor()
+				]
+			}]
+		};
+
+		window.onload = function() {
+			var chartEl = document.getElementById('chart');
+			window.myLine = new Chart(chartEl, {
+				type: 'line',
+				data: lineChartData,
+				options: {
+					title: {
+						display: true,
+						text: 'Chart.js Line Chart - Custom Agenttips'
+					},
+					agenttips: {
+						enabled: false,
+						mode: 'index',
+						position: 'nearest',
+						custom: customAgenttips
+					}
+				}
+			});
+		};
+	</script>
+</body>
+
+</html>

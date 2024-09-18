@@ -1,0 +1,41 @@
+<div ng-if="!AgentList.loading && AgentList.count && AgentList.count != 0">
+	<div bindonce bo-name="" ng-repeat="agent in AgentList.list track by agent.bioagentsID" dir="" ng-cloak>
+		<div class="pill-title-background pill-title">
+			<!-- Agent name -->
+			<a class="pill-title-background-text" ui-sref="agent({id: agent.bioagentsID})"><span bo-html="agent.name | highlight:Highlighting.terms"></span></a>
+			<span style="color:#575757;" ng-if="agent.operatingSystem.length > 0">
+				<span style="color: #CCCCCC">  |  </span>
+				<span ng-repeat="operatingSystem in agent.operatingSystem track by $index" style="margin-left:4px; padding-bottom: -2px;">
+					<i style="font-size:110%;" class="fa fa-3x fa-apple" ng-show="operatingSystem == 'Mac'" agenttips agenttip-side="top" agenttip-content="Operating system:: {{ operatingSystem }}"></i>
+					<i style="font-size:110%;" class="fa fa-3x fa-linux" ng-show="operatingSystem == 'Linux'" agenttips agenttip-side="top" agenttip-content="Operating system:: {{ operatingSystem }}"></i>
+					<i style="font-size:110%;" class="fa fa-3x fa-windows" ng-show="operatingSystem == 'Windows'" agenttips agenttip-side="top" agenttip-content="Operating system:: {{ operatingSystem }}"></i>
+				</span>
+			</span>
+		</div>
+		<div class="panel pill-background pill-text">
+			<!-- Agent description -->
+			<span bo-html="agent.description | highlight:Highlighting.terms"></span><hr class="pill-hr-divider">
+			<!-- Topics and Operations -->
+			<div bo-show="agent.topic.length > 0" class="pill-spacing">
+				<span ng-repeat="topic in agent.topic track by $index" agenttips agenttip-content="Topic in the Life Sciences : click to find more agents with this topic."><a ng-if="topic.term !== 'N/A'" class="pill-tag-topic" bo-html="topic.term | highlight:Highlighting.terms" href="" ng-click="topicNameClicked(topic)" target="_blank"></a></span>
+			</div>
+			<div bo-show="getFlatOperations(agent.function).length > 0" class="pill-spacing">
+				<span ng-repeat="o in getFlatOperations(agent.function) track by $index" agenttips agenttip-content="Agent operation : click to find more agents with this operation.">
+					<a class="pill-tag-operation" bo-html="o.term | highlight:Highlighting.terms" href="" ng-click="operationNameClicked(o)" target="_blank"></a>
+				</span>
+
+			</div>
+			<!-- Agent type -->
+			<div bo-show="agent.agentType.length > 0 || agent.licence" class="pill-spacing">
+				<span ng-repeat="agentType in agent.agentType track by $index" class="label pill-tag-secondary-background"><span bo-html="agentType | highlight:Highlighting.terms" agenttips agenttip-content="Type of agent"></span></span>
+				<span ng-if="agent.license" class="label pill-tag-primary-background" agenttips agenttip-content="Software or data license">
+					<a ng-show="shouldLicenseBeALink(agent.license)" href="https://spdx.org/licenses/{{ ::agent.license }}" target="_blank" bo-html="agent.license | highlight:Highlighting.terms"></a>
+					<span ng-show="!shouldLicenseBeALink(agent.license)" bo-html="agent.license | highlight:Highlighting.terms"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>	
+<div ng-if="!AgentList.loading && AgentList.count && AgentList.count > 10" style="display: flex; justify-content: center;">
+	<div agent-paginator></div>
+</div>

@@ -1,0 +1,95 @@
+
+
+	
+	<div ng-if="software.relation.length > 0">
+		<div class="agent-page-diver-label" >
+			<span>Relations</span>
+		</div>
+
+		<div style="display: flex; flex-wrap: wrap;">
+			<span ng-repeat="relation in software.relation track by $index" style="margin-bottom: 7px;">
+				<span class="pill-tag-fourth-background">{{relation.type}}: <a target="_blank" ng-href="/{{relation.bioagentsID}}">{{relation.bioagentsID}}</a></span>
+			</span>
+		</div>
+
+	</div>
+
+
+	<!-- Divider line -->
+	<div class="agent-page-diver-label">
+		<span>IECHOR credits and links</span>
+	</div>
+<div ng-if="software.iechorPlatform.length > 0">
+	<!-- iEchor Platform -->
+	<span class="agent-page-version-text">IECHOR platform</span>
+	<div style="display: flex; flex-wrap: wrap;">
+		<span ng-repeat="platform in software.iechorPlatform track by $index" style="margin-bottom: 7px;">
+			<a class="pill-tag-third-background" href="https://www.iechor-europe.org/platforms/{{platform}}" target="_blank">{{ ::platform }}</a>
+		</span>
+	</div>
+</div>
+<div ng-if="software.iechorNode.length > 0">
+	<!-- iEchor Node -->
+	<span class="agent-page-version-text">IECHOR node</span>
+	<div style="display: flex; flex-wrap: wrap;">
+		<span ng-repeat="node in software.iechorNode track by $index" style="margin-bottom: 7px;">
+			<a class="pill-tag-third-background" href="https://www.iechor-europe.org/about-us/who-we-are/nodes/{{node.replace(' ','-')}}" target="_blank">{{ ::node }}</a>
+		</span>
+	</div>
+</div>
+
+	<div style="">
+		<a href="" ng-href="https://tess.iechor-europe.org" target="_blank"><img src="img/tess_logo.png" width="64" title="IECHOR's Training Portal" alt="TeSS"></a>
+		<span style="margin-bottom: 7px;">
+			<a class="" href="https://tess.iechor-europe.org/materials?q={{software.name}}" target="_blank">Training materials ›</a>
+		</span>
+		<span> | </span>
+		<span style="margin-bottom: 7px;">
+			<a class="" href="https://tess.iechor-europe.org/events?q={{software.name}}" target="_blank">Training events ›</a>
+		</span>
+	</div>
+	<br>
+
+  <!--iechor badge-->
+	<div ng-if="software.iechor_badge > 0 && software.iechor_badge < 8">
+		<span class="iechor_badge" ng-if="software.iechor_badge == 1 || software.iechor_badge == 3 || software.iechor_badge == 5 || software.iechor_badge == 7">
+			
+			<a href="" ng-href="https://www.iechor-europe.org/platforms/data/iechor-deposition-databases" target="_blank"><img src="img/edd.png" width="56" title="IECHOR Deposition Database" alt="EDD"></a>
+
+			<span>
+				<a href="" ng-href="https://www.iechor-europe.org/platforms/data/iechor-deposition-databases" target="_blank">IECHOR Deposition Database ›</a>
+			</span>
+
+
+			<span ng-if="software.iechor_badge == 3 || software.iechor_badge == 5 || software.iechor_badge == 7"> | </span>
+		</span>
+
+		<span class="iechor_badge" ng-if="software.iechor_badge == 4 || software.iechor_badge == 5 || software.iechor_badge == 6 || software.iechor_badge == 7">
+			<a href="" ng-href="https://www.iechor-europe.org/platforms/interoperability/rir-selection" target="_blank"> <img src="img/rir.png" width="56" title="Recommended Interoperability Resource" alt="RIR"></a>			
+
+			<span>
+				<a href="" ng-href="https://www.iechor-europe.org/platforms/interoperability/rir-selection" target="_blank">Recommended Interoperability Resource ›</a>
+			</span>
+
+			<span ng-if="software.iechor_badge == 6 || software.iechor_badge == 7"> | </span>
+		</span>
+
+		<span class="iechor_badge" ng-if="software.iechor_badge == 2 || software.iechor_badge == 3 || software.iechor_badge == 6 || software.iechor_badge == 7">
+
+			<a href="" ng-href="https://www.iechor-europe.org/platforms/data/core-data-resources" target="_blank">	 <img src="img/cdr.png" width="56" title="Core Data Resources" alt="CDR"></a>
+			<span>
+				<a href="" ng-href="https://www.iechor-europe.org/platforms/data/core-data-resources" target="_blank">Core Data Resources ›</a>
+			</span>
+		</span>
+		
+	</div>
+</div>
+<div ng-if="software.collectionID.length > 0">
+	<div class="agent-page-diver-label">
+		<span agenttips agenttip-content="Agent has been assigned to the following collections">Agent collection(s)</span>
+	</div>
+	<span> <a ng-if="software.collectionID.length > 0" ng-repeat="collection in software.collectionID" class="pill-tag-secondary-background" href="" ng-click = collectionNameClicked(collection)>
+		{{ ::collection }}
+	</a></span>
+</div>
+

@@ -1,0 +1,190 @@
+<div ng-form name="inner_form">
+<div ng-repeat="agentAttribute in agentAttributeModel" ng-if="!agentAttribute.hidden">
+	<div class="form-group">
+		<label>
+			<span popover-placement="top" popover="{{ agentAttribute.description }}" popover-popup-delay="0" popover-trigger="mouseenter">{{ agentAttribute.text }}</span>&nbsp;
+			<a ng-if="agentAttribute.type == 'complex' && agentInstance[agentAttribute.attrName] != undefined && agentInstance[agentAttribute.attrName].length > 0" style="cursor: pointer; cursor: hand;" ng-click="agentAttribute.expanded = !agentAttribute.expanded"><span ng-if="agentAttribute.expanded" class="glyphicon glyphicon-chevron-up pull-right"></span><span ng-if="!agentAttribute.expanded" class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+		</label>
+		<div ng-if="((agentAttribute.multipleVal=='true' && agentInstance[agentAttribute.attrName] == undefined || agentInstance[agentAttribute.attrName].length == 0) || (agentAttribute.multipleVal!='true' && agentInstance[agentAttribute.attrName] == undefined)) && !(agentAttribute.type == 'complex' && agentAttribute.multipleVal != 'true')">
+			<span>&lt;No information&gt;</span>
+		</div>
+		<div ng-if="((agentAttribute.multipleVal=='true' && agentInstance[agentAttribute.attrName] != undefined && agentInstance[agentAttribute.attrName].length > 0) || (agentAttribute.multipleVal!='true' && agentInstance[agentAttribute.attrName] != undefined))">
+			<div ng-switch on="agentAttribute.type" ng-if="agentAttribute.attrName != 'tag'">
+				<!-- Text input -->
+				<div ng-switch-when="text">
+					<div ng-switch on="agentAttribute.multipleVal">
+						<!-- Multiple values -->
+						<div ng-switch-when="true">
+							<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+								<!-- Element -->
+								- {{agentInstance[agentAttribute.attrName][$index]}}
+							</div>
+						</div>
+						<!-- Single value -->
+						<div ng-switch-default>
+							<!-- Element -->
+							{{agentInstance[agentAttribute.attrName]}}
+						</div>
+					</div>
+				</div>
+				<!-- Enum input -->
+				<div ng-switch-when="enum">
+					<div ng-switch on="agentAttribute.multipleVal">
+						<!-- Multiple values -->
+						<div ng-switch-when="true">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+										<div class="row">
+											<!-- Element -->
+											- {{agentInstance[agentAttribute.attrName][$index]}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Single value -->
+						<div ng-switch-default>
+							<!-- Element -->
+							{{agentInstance[agentAttribute.attrName]}}
+						</div>
+					</div>
+				</div>
+				<!-- URL input -->
+				<div ng-switch-when="url">
+					<div ng-switch on="agentAttribute.multipleVal">
+						<!-- Multiple values -->
+						<div ng-switch-when="true">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+										<div class="row">
+											<!-- Element -->
+											<a href="{{agentInstance[agentAttribute.attrName][$index]}}">{{agentInstance[agentAttribute.attrName][$index]}}</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Single value -->
+						<div ng-switch-default>
+							<!-- Element -->
+							<a href="{{agentInstance[agentAttribute.attrName]}}">{{agentInstance[agentAttribute.attrName]}}</a>
+						</div>
+					</div>
+				</div>
+				<!-- Email input -->
+				<div ng-switch-when="email">
+					<div ng-switch on="agentAttribute.multipleVal">
+						<!-- Multiple values -->
+						<div ng-switch-when="true">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+										<div class="row">
+											<!-- Element -->
+											{{agentInstance[agentAttribute.attrName][$index]}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Single value -->
+						<div ng-switch-default>
+							<!-- Element -->
+							{{agentInstance[agentAttribute.attrName]}}
+						</div>
+					</div>
+				</div>
+				<!-- Phone input -->
+				<div ng-switch-when="number">
+					<div ng-switch on="agentAttribute.multipleVal">
+						<!-- Multiple values -->
+						<div ng-switch-when="true">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+										<div class="row">
+											<!-- Element -->
+											{{agentInstance[agentAttribute.attrName][$index]}}
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Single value -->
+						<div ng-switch-default>
+							<!-- Element -->
+							{{agentInstance[agentAttribute.attrName]}}
+						</div>
+					</div>
+				</div>
+				<!-- Ontology input -->
+				<div ng-switch-when="ontology">
+					<div ng-switch on="agentAttribute.multipleVal">
+						<!-- Multiple values -->
+						<div ng-switch-when="true">
+							<div class="panel panel-default">
+								<div class="panel-body" style="padding-bottom:0px;">
+									<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+										<div class="row">
+											<span class="col-md-10 col-sm-10 col-xs-10"><u>{{agentInstance[agentAttribute.attrName][$index].term}}</u></span>
+											<!-- Element -->
+											<div elx-input-ontology-read-only agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName][$index]" class="pull-left col-md-10 col-sm-10 col-xs-10"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Single value -->
+						<div ng-switch-default>
+							<!-- Element -->
+							<span class="col-md-10 col-sm-10 col-xs-10"><u>{{agentInstance[agentAttribute.attrName].term}}</u></span>
+							<div class="row">
+								<div elx-input-ontology-read-only agent-attribute-model="agentAttribute" agent-instance="agentInstance[agentAttribute.attrName]" class="pull-left col-md-10 col-sm-10 col-xs-10"></div>
+							</div>
+							<div style="clear:both"></div>
+						</div>
+					</div>
+				</div>
+				<!-- Complex input -->
+				<div ng-switch-when="complex">
+					<div ng-switch on="agentAttribute.multipleVal">
+						<!-- Multiple values -->
+						<div ng-switch-when="true">
+							<div class="panel panel-default" uib-collapse="agentAttribute.expanded">
+								<div class="panel-body" style="padding-bottom:0px;">
+									<div ng-repeat="entry in agentInstance[agentAttribute.attrName] track by $index">
+										<div class="panel panel-default">
+											<div class="panel-body">
+												<!-- Element -->
+												<div elx-complex-attr-read-only-compiler agent-attribute-model="agentAttribute.fields" agent-instance="agentInstance[agentAttribute.attrName][$index]"></div>
+												<hr ng-show="agentAttribute.multipleVal == true">
+											</div>
+										</div>
+									</div>
+								</div>
+								<div style="clear:both"></div>
+							</div>
+						</div>
+						<!-- Single value -->
+						<div ng-switch-default>
+							<!-- Element -->
+							<div class="panel panel-default">
+								<div class="panel-body" style="padding-bottom:0px;">
+									<div elx-complex-attr-read-only-compiler agent-attribute-model="agentAttribute.fields" agent-instance="agentInstance[agentAttribute.attrName]"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-if="agentAttribute.attrName == 'tag'" uib-collapse="agentAttribute.expanded">
+				<div ng-repeat="tag in agentInstance[agentAttribute.attrName]">
+					- {{ tag.term }}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

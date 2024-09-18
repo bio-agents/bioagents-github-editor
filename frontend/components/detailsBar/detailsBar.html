@@ -1,0 +1,12 @@
+<div ng-class="{'details-bar-container': showAgentbar, 'details-bar-container-empty': !showAgentbar}">
+	<div ng-if="showAgentbar" class="details-bar-default">
+		<div class="details-bar-content">
+			<div class="col-sm-12 col-lg-10 col-lg-offset-1" ng-controller="DetailsBarController as ctrl">
+				<div class="col-sm-12">
+					<span agent-sorter></span>
+					<span class="pull-right" display-mode-selector></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

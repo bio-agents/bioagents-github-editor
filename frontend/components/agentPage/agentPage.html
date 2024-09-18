@@ -1,0 +1,25 @@
+<div ui-view>
+	<div ng-show="notFound" resource-not-found-dialog></div>
+	<div style="text-align:center" ng-if="!software.bioagentsID">
+		<div spinner style="margin:40px;"></div>
+	</div>
+	<div ng-if="software.bioagentsID">
+		<div style="padding-left: 40px; padding-right: 40px; padding-top: 20px; padding-bottom: 60px;" class="default-background">
+			<div ng-include="'/components/agentPage/agentPageHeader.html'"></div>
+			<div ng-include="'/components/agentPage/agentPageSummary.html'"></div>
+			<div ng-include="'/components/agentPage/agentPageOperation.html'"></div>
+			<div class="row">
+				<!--<div class="col-md-4 col-sm-6" ng-if="software.publication.length > 0" ng-include="'/components/agentPage/agentPagePublications.html'"></div>-->
+				<div class="col-md-4 col-sm-6" ng-if="software.credit.length > 0" ng-include="'/components/agentPage/agentPageCredits.html'"></div>
+				<div class="col-md-4 col-sm-6" ng-if="software.documentation.length > 0" ng-include="'/components/agentPage/agentPageDocumentation.html'"></div>
+				<div class="col-md-4 col-sm-6" ng-if="software.download.length > 0" ng-include="'/components/agentPage/agentPageDownload.html'"></div>
+				<div class="col-md-4 col-sm-6" ng-if="software.link.length > 0" ng-include="'/components/agentPage/agentPageLinks.html'"></div>
+				<div class="col-md-4 col-sm-6" ng-if="software.contact.length > 0" ng-include="'/components/agentPage/agentPageContact.html'"></div>
+			</div>
+			<div ng-if="software.publication.length > 0" ng-include="'/components/agentPage/agentPagePublicationDetail.html'"></div>
+			<div ng-include="'/components/agentPage/agentPageiEchorInfo.html'"></div>
+		</div>
+		<div ng-include="'/components/agentPage/agentPageControls.html'"></div>
+		<div class="default-controls-background"></div>
+	</div>
+</div>

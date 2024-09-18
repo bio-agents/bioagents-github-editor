@@ -1,0 +1,39 @@
+{
+  "name": "angular-agenttips",
+  "version": "0.1.25",
+  "description": "Angular.js agenttips module.",
+  "authors": [
+    "Filippo Oretti <filippo.oretti@gmail.com",
+    "Dario Andrei <wouldgo84@gmail.com>"
+  ],
+  "keywords": [
+    "tiptip",
+    "agenttip",
+    "agenttips",
+    "popover",
+    "angularjs",
+    "angular"
+  ],
+  "main": [
+    "./dist/angular-agenttips.min.js",
+    "./dist/angular-agenttips.min.css"
+  ],
+  "license": "MIT",
+  "homepage": "http://720kb.github.io/angular-agenttips",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "0.1.25",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.25",
+    "commit": "dcdbe3b2d0b9b0c7af70889e4874944230e4bb28"
+  },
+  "_source": "https://github.com/720kb/angular-agenttips.git",
+  "_target": "~0.1.25",
+  "_originalSource": "angular-agenttips"
+}
