@@ -1,33 +1,3 @@
-{
-    "config": {
-        "type": "radar",
-        "data": {
-            "labels": ["A", "B", "C", "D", "E"]
-        },
-        "options": {
-            "responsive": false,
-            "legend": false,
-            "title": false,
-            "scale": {
-                "gridLines": {
-                    "color": "rgba(0, 0, 255, 0.5)",
-                    "lineWidth": 1,
-                    "borderDash": [4, 2],
-                    "borderDashOffset": 2
-                },
-                "angleLines": {
-                    "color": "rgba(0, 0, 255, 0.5)",
-                    "lineWidth": 1,
-                    "borderDash": [4, 2],
-                    "borderDashOffset": 2
-                },
-                "pointLabels": {
-                    "display": false
-                },
-                "ticks": {
-                    "display": false
-                }
-            }
-        }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:32e1caf26596d060e3d4d01034943a2031211488822b03202771458829044395
+size 904

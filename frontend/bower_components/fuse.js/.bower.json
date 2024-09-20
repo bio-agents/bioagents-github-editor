@@ -1,18 +1,3 @@
-{
-  "name": "fuse.js",
-  "version": "2.7.4",
-  "main": "./src/fuse.js",
-  "ignore": [
-    "test"
-  ],
-  "homepage": "https://github.com/krisk/Fuse",
-  "_release": "2.7.4",
-  "_resolution": {
-    "type": "version",
-    "tag": "v2.7.4",
-    "commit": "0226926b36e9201f90fc8a5f0584e2d596ab7bae"
-  },
-  "_source": "https://github.com/krisk/Fuse.git",
-  "_target": "^2.5.0",
-  "_originalSource": "fuse.js"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:82d90304fbc0bfb417bef2f4855eb2ee355ab93caa68f8a9af1623f0c4cf2f0d
+size 402

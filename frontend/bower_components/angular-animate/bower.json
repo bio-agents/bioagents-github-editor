@@ -1,10 +1,3 @@
-{
-  "name": "angular-animate",
-  "version": "1.4.14",
-  "license": "MIT",
-  "main": "./angular-animate.js",
-  "ignore": [],
-  "dependencies": {
-    "angular": "1.4.14"
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9b774041e3f2ae4d4c56740f45b1780f6c14807a84d800ee44c830a8297f37aa
+size 174

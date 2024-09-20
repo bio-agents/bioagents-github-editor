@@ -1,20 +1,3 @@
-{
-  "name": "angular-route",
-  "version": "1.4.14",
-  "license": "MIT",
-  "main": "./angular-route.js",
-  "ignore": [],
-  "dependencies": {
-    "angular": "1.4.14"
-  },
-  "homepage": "https://github.com/angular/bower-angular-route",
-  "_release": "1.4.14",
-  "_resolution": {
-    "type": "version",
-    "tag": "v1.4.14",
-    "commit": "785dd6ff64784a33840ab4535503f3f576e78751"
-  },
-  "_source": "https://github.com/angular/bower-angular-route.git",
-  "_target": "~1.4.7",
-  "_originalSource": "angular-route"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:6d3fe63e60ae0dec2619d5f3cbbd361558492606f36cc407b15aa801ceab9191
+size 511

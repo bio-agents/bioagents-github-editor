@@ -1,10 +1,3 @@
-{
-  "name": "angular-cookies",
-  "version": "1.4.14",
-  "license": "MIT",
-  "main": "./angular-cookies.js",
-  "ignore": [],
-  "dependencies": {
-    "angular": "1.4.14"
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:a32274ea9abae35ec8a61a48b86894754ab454e0ba659c5235352d83271beed6
+size 174

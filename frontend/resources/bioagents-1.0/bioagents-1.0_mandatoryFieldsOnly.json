@@ -1,36 +1,3 @@
-{
-  "name": "ResourceName",
-  "homepage": "http://resourcename.org",
-  "resourceType": [
-    {
-      "term": "Agent (query and retrieval)"
-    }
-  ],
-  "interface": [
-    {
-      "interfaceType": {
-        "term": "SQL"
-      }
-    }
-  ],
-  "description": "Description of resource goes here.",
-  "topic": [
-    {
-      "term": "EDAM Topic"
-    }
-  ],
-  "function": [
-    {
-      "functionName": [
-        {
-          "term": "EDAM Function"
-        }
-      ]
-    }
-  ],
-  "contact": [
-    {
-      "contactEmail": "FredBloggs@gmail.com"
-    }
-  ]
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:08e516e571f38f0bb05e32e8dc847b79556f15a6de5794c950a53d463e6ccad3
+size 547

@@ -1,14 +1,3 @@
-{
-  "name": "lodash",
-  "homepage": "https://github.com/lodash/lodash",
-  "version": "4.11.1",
-  "_release": "4.11.1",
-  "_resolution": {
-    "type": "version",
-    "tag": "4.11.1",
-    "commit": "7504013e824035ef605eff1dec332022e5fcca9d"
-  },
-  "_source": "https://github.com/lodash/lodash.git",
-  "_target": "=4.11.1",
-  "_originalSource": "lodash"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e32662beaac0132beb09f94d2f96bbc34817b8909b8f27bc1b2143441b0ab712
+size 352

@@ -1,25 +1,3 @@
-{
-  "name": "angular",
-  "version": "1.4.14",
-  "description": "HTML enhanced for web apps",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/angular/angular.js.git"
-  },
-  "keywords": [
-    "angular",
-    "framework",
-    "browser",
-    "client-side"
-  ],
-  "author": "Angular Core Team <angular-core+npm@google.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/angular/angular.js/issues"
-  },
-  "homepage": "http://angularjs.org"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9193c208a698719f4750bf334bcee021c5868286d9d0429c5c14c03d8774155f
+size 573

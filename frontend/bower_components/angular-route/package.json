@@ -1,33 +1,3 @@
-{
-  "name": "angular-route",
-  "version": "1.4.14",
-  "description": "AngularJS router module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/angular/angular.js.git"
-  },
-  "keywords": [
-    "angular",
-    "framework",
-    "browser",
-    "router",
-    "client-side"
-  ],
-  "author": "Angular Core Team <angular-core+npm@google.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/angular/angular.js/issues"
-  },
-  "homepage": "http://angularjs.org",
-  "jspm": {
-    "shim": {
-      "angular-route": {
-        "deps": ["angular"]
-      }
-    }
-  }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:ada039a80e9d65e34db0909aaa19518ad94b6e1a26426b97cf93665e86d3cd90
+size 688
