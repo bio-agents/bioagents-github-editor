@@ -1279,7 +1279,7 @@
 													<uiTip>Template for a URL fragment, which when appended to the base URL, defines the syntax of a valid resolvable URL.  The template can include parameters that must be substituted before the URL is resolved.</uiTip>
 													<bioagentsUsage>Mandatory (conditionally)</bioagentsUsage>
 												</xs:appinfo>
-												<xs:documentation>The value is text adhering to a strict syntax, see https://github.com/bio-agents/bioagentsschema.</xs:documentation>
+												<xs:documentation>The value is text adhering to a strict syntax, see https://github.com/bio-agents/bioagents-schema.</xs:documentation>
 												<xs:appinfo>
 													<altova:exampleValues>
 														<altova:example value="/agent/{agentID}"/>
@@ -1329,7 +1329,7 @@
 												<xs:element name="summary" type="textType" minOccurs="0">
 													<xs:annotation>
 														<xs:documentation>A textual summary of a service endpoint.  </xs:documentation>
-														<xs:documentation>The value is text with optional markdown, see https://github.com/bio-agents/bioagentsschema.</xs:documentation>
+														<xs:documentation>The value is text with optional markdown, see https://github.com/bio-agents/bioagents-schema.</xs:documentation>
 														<xs:appinfo>
 															<uiTip>Summary of service endpoint.</uiTip>
 															<bioagentsUsage>Mandatory (conditionally)</bioagentsUsage>
@@ -1356,7 +1356,7 @@
 																<bioagentsUsage>Mandatory (conditionally)</bioagentsUsage>
 															</xs:appinfo>
 															<xs:documentation>A fragment from the URL template corresponding to a URL parameter, which is replaced by some value when the service is called.</xs:documentation>
-															<xs:documentation>The value is text adhering to a strict syntax, see https://github.com/bio-agents/bioagentsschema.</xs:documentation>
+															<xs:documentation>The value is text adhering to a strict syntax, see https://github.com/bio-agents/bioagents-schema.</xs:documentation>
 															<xs:appinfo>
 																<altova:exampleValues>
 																	<altova:example value="{agentID}"/>
@@ -1806,7 +1806,7 @@
 													</enumItem>
 													<enumItem>
 														<term>Other</term>
-														<uiTip>Some other type of documentation not listed in bioagentsSchema.</uiTip>
+														<uiTip>Some other type of documentation not listed in bioagents schema.</uiTip>
 													</enumItem>
 												</enum>
 											</xs:appinfo>
